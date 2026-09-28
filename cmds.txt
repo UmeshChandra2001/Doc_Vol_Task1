@@ -39,3 +39,167 @@
    39  git push -u origin main
    40  history
 
+
+--prac2
+
+    1  docker ps -a
+    2  docker exec -it mscont2 bash
+    3  ll -a
+    4  history
+    5  cd Doc_Prac_MSSQL/
+    6  vim cmds_performed.txt
+    7  ll -a
+    8  git add .
+    9  git commit -m "PUSHING TO DOCKER"
+   10  git push -u origin main
+   11  git version
+   12  git clone https://github.com/UmeshChandra2001/Doc_Vol_Task1.git
+   13  cd Doc_Vol_Task1/
+   14  ll -a
+   15  vim mysql.sql
+   16  ll -a
+   17  vim dockerfile
+   18  docker build -t mysqlimg:v1 .
+   19  docker images
+   20  docker ps -a
+   21  docker run -d --name mycont1 -p 9983:3306 mysqlimg:v1
+   22  docker ps -a
+   23  docker build -t mssqlimg:v2 .
+   24  docker volume create mysqlvol1
+   25  docker volume ls
+   26  docker volume inspect mysqlvol1
+   27  docker ps
+   28  docker ps -a
+   29  docker logs mycont1
+   30  docker volumes ls
+   31  docker volume ls 
+   32  docker images
+   33  ocker run -itd --name mysqlcont1 --mount src=mysqlvol1,destination=/var/lib/mysql -p 9984:3306 mysqlimg:v2
+   34  docker run -itd --name mysqlcont1 --mount src=mysqlvol1,destination=/var/lib/mysql -p 9984:3306 mysqlimg:v2
+   35  docker run -itd --name mysqlcont2 --mount src=mysqlvol1,destination=/var/lib/mysql -p 9985:3306 mssqlimg:v3
+   36  docker volume ls 
+   37  docker inspect mysqlvol1
+   38  docker ps -a
+   39  docker logs mysqlcont1
+   40  vim mysql.sql 
+   41  docker build -t mssqlimg:v3 .
+   42  docker run -itd --name mysqlcont2 --mount src=mysqlvol1,destination=/var/lib/mysql -p 9985:3306 mssqlimg:v3
+   43  docker ps -a
+   44  docker run -itd --name mysqlcont2 --mount src=mysqlvol1,destination=/var/lib/mysql -p 9985:3306 mssqlimg:v3
+   45  docker ps -a
+   46  docker exec -it mysqlcont2 bash
+   47  git add .
+   48  git commit -m "PUSHING FROM LOCAL REPO TO GIT REPO"
+   49  git push -u origin main
+   50  history
+   51  vim task_cmd
+   52  vim cmds.txt
+   53  git add .
+   54  git commit -m "CMD USED"
+   55  git push -u origin main
+   56  cd Doc_Vol_Task1/
+   57  vim devops.sql
+   58  ll -a
+   59  mv dockerfile tfi_dockerfile
+   60  vim tfi_dockerfile 
+   61  vim dockerfile
+   62  ll -a
+   63  docker volume
+   64  docker volumes ls
+   65  docker volume ls
+   66  docker image prune -a
+   67  docker images
+   68  docker rmi -f $(docker images -aq)
+   69  docker ps -a
+   70  docker rm mscont2
+   71  docker stop mscont2
+   72  docker rm mscont2
+   73  docker stop m
+   74  docker rm mysqlcont2
+   75  docker ps -a
+   76  docker rm mysqlcont1
+   77  docker rm mycont1
+   78  docker ps -a
+   79  docker rm mscont1
+   80  docker ps -a
+   81  docker image 
+   82  docker images
+   83  docker rmi -f $(docker images -aq)
+   84  docker images
+   85  docker volumes 
+   86  docker volume ls
+   87  docker volume rm mysqlvol1
+   88  docker volume rm fe46b388bb70e266334a7bc11da1144553e8d50e81a1fc82422224968f8b99a8
+   89  docker volume ls
+   90  ll -a
+   91  vim devops.sql
+   92  vim dockerfile
+   93  rm dockerfile
+   94  ll -a
+   95  vim dockerfile
+   96  ps -a
+   97  kill -p 54759
+   98  Kill 54759
+   99  kill 54759
+  100  ps -a
+  101  kill 54759
+  102  ps -a
+  103  kill -9 54759
+  104  ps -a
+  105  ll -a
+  106  vim dockerfile
+  107  ps -a
+  108  vim dockerfile
+  109  cd Doc_Vol_Task1
+  110  ll -a
+  111  rm -f .dockerfile.swp
+  112  ll -a
+  113  vim dockerfile
+  114  docker build -t mssqlimg:v1 .
+  115  docker run -d --name sqlcont1 -p 9981:3306 mssqlimg:v1
+  116  docker ps -a
+  117  docker exec -it sqlcont1 bash
+  118  docker images
+  119  docker volume create volume1
+  120  docker volume create volume2
+  121  docker volume create volume3
+  122  docker volume create volume4
+  123  docker volume ls
+  124  docker images
+  125  docker volume ls
+  126  docker ps -a
+  127  docker volumes ls
+  128  docker volume ls
+  129  docker run -itd --name sqlcont2 --mount src=volume1,destination=/var/lib/mysql -p 9982:3306 mssqlimg:v1
+  130  docker ps -a
+  131  docker exec -it sqlcont2 bash
+  132  cd /var/lib/docker/volumes/volume1
+  133  ll -a
+  134  cd /_data/
+  135  cd _data/
+  136  ll -a
+  137  cd devops_db/
+  138  ll -a
+  139  cat employees.ibd 
+  140  vim employees.ibd 
+  141  ll -a
+  142  docker ps -a
+  143  docker run -itd --name sqlcont3 --mount src=volume1,destination=/var/lib/mysql -p 9983:3306 mssqlimg:v1
+  144  docker run -itd --name sqlcont4 --mount src=volume1,destination=/var/lib/mysql -p 9984:3306 mssqlimg:v1
+  145  docker run -itd --name sqlcont5 --mount src=volume1,destination=/var/lib/mysql -p 9985:3306 mssqlimg:v1
+  146  docker ps -a
+  147  docker logs sqlcont5
+  148  docker inspect sqlcont5
+  149  docker ps -a
+  150  docker rm sqlcont3
+  151  docker rm sqlcont4
+  152  docker rm sqlcont5
+  153  docker ps -a
+  154  ll -a
+  155  docker run -itd --name sqlcont3 --mount src=volume2,destination=/var/lib/mysql -p 9983:3306 mssqlimg:v1
+  156  docker run -itd --name sqlcont4 --mount src=volume3,destination=/var/lib/mysql -p 9984:3306 mssqlimg:v1
+  157  docker run -itd --name sqlcont5 --mount src=volume4,destination=/var/lib/mysql -p 9985:3306 mssqlimg:v1
+  158  docker ps -a
+  159  docker exec -itd sqlcont3 bash
+  160  docker exec -it sqlcont3 bash
+  161  history
