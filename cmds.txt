@@ -1,0 +1,41 @@
+1  git version
+    2  git clone https://github.com/UmeshChandra2001/Doc_Vol_Task1.git
+    3  cd Doc_Vol_Task1/
+    4  ll -a
+    5  vim mysql.sql
+    6  ll -a
+    7  vim dockerfile
+    8  docker build -t mysqlimg:v1 .
+    9  docker images
+   10  docker ps -a
+   11  docker run -d --name mycont1 -p 9983:3306 mysqlimg:v1
+   12  docker ps -a
+   13  docker build -t mssqlimg:v2 .
+   14  docker volume create mysqlvol1
+   15  docker volume ls
+   16  docker volume inspect mysqlvol1
+   17  docker ps
+   18  docker ps -a
+   19  docker logs mycont1
+   20  docker volumes ls
+   21  docker volume ls 
+   22  docker images
+   23  ocker run -itd --name mysqlcont1 --mount src=mysqlvol1,destination=/var/lib/mysql -p 9984:3306 mysqlimg:v2
+   24  docker run -itd --name mysqlcont1 --mount src=mysqlvol1,destination=/var/lib/mysql -p 9984:3306 mysqlimg:v2
+   25* docker run -itd --name mysqlcont2 --mount src=mysqlvol1,destination=/var/lib/mysql -p 9985:3306 mssqlimg:v3
+   26  docker volume ls 
+   27  docker inspect mysqlvol1
+   28  docker ps -a
+   29  docker logs mysqlcont1
+   30  vim mysql.sql 
+   31  docker build -t mssqlimg:v3 .
+   32  docker run -itd --name mysqlcont2 --mount src=mysqlvol1,destination=/var/lib/mysql -p 9985:3306 mssqlimg:v3
+   33  docker ps -a
+   34  docker run -itd --name mysqlcont2 --mount src=mysqlvol1,destination=/var/lib/mysql -p 9985:3306 mssqlimg:v3
+   35  docker ps -a
+   36  docker exec -it mysqlcont2 bash
+   37  git add .
+   38  git commit -m "PUSHING FROM LOCAL REPO TO GIT REPO"
+   39  git push -u origin main
+   40  history
+

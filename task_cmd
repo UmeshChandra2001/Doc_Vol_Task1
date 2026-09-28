@@ -1,0 +1,15 @@
+Write a Dockerfile for Database (Mysql)
+Docker in git repo url : https://github.com/UmeshChandra2001/Doc_Vol_Task1
+
+Create an Image
+docker build -t mssqlimg:v2 .
+
+Create a Volume for database
+docker volume create mysqlvol1
+
+Create a container for database and mount the volume (/var/lib/mysql)
+docker run -itd --name mysqlcont2 --mount src=mysqlvol1,destination=/var/lib/mysql -p 9985:3306 mssqlimg:v3
+docker exec -it mysqlcont2 bash
+
+Mount the volume to multiple containers (2-4)
+Insert Some data into that database & Verify the data is replication on another containers also
